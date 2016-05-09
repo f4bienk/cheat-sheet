@@ -1,0 +1,14 @@
+#FUNCTIONS
+
+listen (){
+	netstat -na | grep LISTEN
+}
+
+psgrep() {
+	if [ ! -z $1 ] ; then
+		echo "Grepping for processes matching $1..."
+		ps aux | grep $1 | grep -v grep
+	else
+		echo "!! Need name to grep for"
+	fi
+}
